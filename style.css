@@ -1,6 +1,5 @@
 /* Estilos generales */
 body {
-  background-image: url('https://cdn.pixabay.com/photo/2015/01/31/05/05/background-618226_1280.png');
   background-size: cover;
   background-repeat: no-repeat;
   font-family: Arial, sans-serif;
@@ -13,12 +12,12 @@ body {
 h1 {
   text-align: center;
   margin: 20px 0;
-  color: #ff4f0a; /* Color naranja suave */
+  color: #ff1100; /* Color naranja suave */
   font-family: "Arial Black", sans-serif; /* Tipo de letra */
   font-size: 36px; /* Tamaño de letra */
   letter-spacing: 2px; /* Espaciado entre letras */
   text-transform: uppercase; /* Convertir el texto en mayúsculas */
-  text-shadow: 2px 2px 4px rgba(255, 98, 0, 0.897); /* Sombra de texto */
+  text-shadow: 2px 2px 4px rgba(255, 38, 0, 0.897); /* Sombra de texto */
 }
 
 /* Resto de estilos */
@@ -48,7 +47,7 @@ nav ul {
 }
 
 .splide__slide a:hover {
-  background-color: #e1480b;
+  background-color: #ec0e06;
 }
 
 /* Estilos específicos de las páginas */
@@ -63,7 +62,7 @@ form#registroForm {
   margin: 0 auto;
   background-color: #ffffff;
   padding: 20px;
-  border: 1px solid #f90;
+  border: 1px solid rgb(255, 0, 0);
   border-radius: 5px;
   box-shadow: 0 2px 4px rgb(254, 242, 242);
 }
@@ -128,11 +127,11 @@ form#modificarForm input[type="email"]:focus,
 form#modificarForm input[type="tel"]:focus,
 button#mostrarTodoBtn:focus {
   outline: none;
-  border-color: #4CAF50;
+  border-color: #e6180a;
 }
 
 button#mostrarTodoBtn {
-  background-color: #4CAF50;
+  background-color: #f11808;
   color: #fff;
 }
 
@@ -140,7 +139,7 @@ form#registroForm button[type="button"],
 form#eliminarForm button[type="button"],
 form#modificarForm button[type="button"] {
   padding: 10px 20px;
-  background-color: #ff8c00;
+  background-color: #ff0000;
   color: #fff;
   border: none;
   border-radius: 3px;
@@ -150,7 +149,7 @@ form#modificarForm button[type="button"] {
 form#registroForm button[type="button"]:hover,
 form#eliminarForm button[type="button"]:hover,
 form#modificarForm button[type="button"]:hover {
-  background-color: #ff6a00;
+  background-color: #f71809;
 }
 
 #sugerenciasCiudad {
@@ -182,7 +181,7 @@ button {
   display: block;
   margin: 20px auto;
   padding: 10px 20px;
-  background-color: #ff6a00;
+  background-color: #ff1100;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -191,14 +190,14 @@ button {
 }
 
 button:hover {
-  background-color: #e58715;
+  background-color: #ff1100;
 }
 
 #registrosContainer {
   background-color: #fff;
   padding: 20px;
   border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(230, 118, 14, 0.712);
+  box-shadow: 0 2px 4px rgb(231, 4, 4);
 }
 
 .oculto {
@@ -275,7 +274,7 @@ button:hover {
 }
 
 .button:nth-child(1) {
-  background-color: #ff6a00;
+  background-color: #e41717;
 }
 
 .button:nth-child(2) {
@@ -287,7 +286,7 @@ button:hover {
 }
 
 .button:nth-child(4) {
-  background-color: #f76e0c;
+  background-color: #e90f07;
 }
 
 .button:hover {
@@ -295,7 +294,14 @@ button:hover {
 }
 
 .mensaje-container {
-  color: white;
+  color: rgb(0, 0, 0);
   padding: 10px;
   margin-top: -20px;
 }
+
+#codigoPostal {
+  width: 200px;
+  height: 30px;
+  font-size: 16px;
+}
+

@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Registrar</title>
+  <link rel="icon" href="C:\Users\felix\OneDrive\Escritorio\PROGRA\LANDING HTML\PruebaN3\fotos\WhatsApp Image 2023-04-29 at 18.07.12-fotor-bg-remover-2023042918657.png" type="image/png">
   <link rel="stylesheet" href="style.css">
   <meta charset="UTF-8">
 </head>
@@ -27,7 +28,9 @@
         <input type="radio" id="genero-femenino" name="genero" value="femenino" required>
       </div>
     </div><br>
-    
+
+    <label for="fechaNacimiento">Fecha de Nacimiento:</label><br>
+    <input type="date" id="fechaNacimiento" onchange="validarFechaNacimiento()" required><br><br>
 
     <label for="ciudad">Ciudad:</label><br>
     <select id="busquedaCiudad">
@@ -80,7 +83,11 @@
     </select><br><br>
 
     <label for="direccion">Dirección:</label><br>
-    <textarea id="direccion" required></textarea><br>
+    <textarea id="direccion" required></textarea><br><br>
+
+    <label for="codigoPostal">Código Postal:</label><br>
+    <input type="number" id="codigoPostal" pattern="[0-9]{5}" min="0" max="99999" title="Ingresa un código postal válido de 5 dígitos" required><br>
+
 
     <button type="button" onclick="registrar()">Registrar</button>
   </form>

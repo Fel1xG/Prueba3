@@ -55,27 +55,51 @@ function mostrarSugerencias() {
   });
 }
 
-// Función para registrar un objeto
+// Función para registrar
 function registrar() {
   const nombreElement = document.getElementById('nombre');
   const correoElement = document.getElementById('correo');
   const telefonoElement = document.getElementById('telefono');
-  const busquedaCiudadElement = document.getElementById('busquedaCiudad');
-  const direccionElement = document.getElementById('direccion');
   const generoMasculinoElement = document.getElementById('genero-masculino');
   const generoFemeninoElement = document.getElementById('genero-femenino');
+  const fechaNacimientoElement = document.getElementById('fechaNacimiento');
+  const busquedaCiudadElement = document.getElementById('busquedaCiudad');
+  const direccionElement = document.getElementById('direccion');
+  const codigoPostalElement = document.getElementById('codigoPostal');
 
-  // Obtener los valores de los elementos de formulario
   const nombre = nombreElement.value.trim();
   const correo = correoElement.value.trim();
   const telefono = telefonoElement.value.trim();
-    const ciudad = busquedaCiudadElement.value.trim();
-  const direccion = direccionElement.value.trim();
   const genero = generoMasculinoElement.checked ? 'masculino' : 'femenino';
+  const fechaNacimiento = fechaNacimientoElement.value.trim();
+  const ciudad = busquedaCiudadElement.value.trim();
+  const direccion = direccionElement.value.trim();
+  const codigoPostal = codigoPostalElement.value.trim();
 
-  // Verificar que los campos no estén vacíos
-  if (nombre === '' || correo === '' || telefono === '' || ciudad === '' || direccion === '') {
-    console.log('Todos los campos son requeridos.');
+  if (nombre === '' || correo === '' || telefono === '' || fechaNacimiento === '' || ciudad === '' || direccion === '' || codigoPostal === '') {
+    mostrarMensaje('Todos los campos son requeridos.', 'error');
+    return;
+  }
+
+  // Validar el formato correcto del correo
+  const correoRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  if (!correoRegex.test(correo)) {
+    mostrarMensaje('Ingresa un correo electrónico válido.', 'error');
+    return;
+  }
+
+// Validar que el nombre y apellido solo contengan texto y caracteres especiales
+const nombreRegex = /^[a-zA-ZáÁéÉíÍóÓúÚñÑüÜ\s]+$/;
+if (!nombreRegex.test(nombre)) {
+  mostrarMensaje('Ingresa un nombre válido. Solo se permiten letras y caracteres especiales.', 'error');
+  return;
+}
+
+
+  // Validar el formato correcto del teléfono
+  const telefonoRegex = /^[+]?(56)?[1-9][0-9]{8}$/;
+  if (!telefonoRegex.test(telefono)) {
+    mostrarMensaje('Ingresa un número de teléfono válido en el formato de Chile.', 'error');
     return;
   }
 
@@ -86,8 +110,14 @@ function registrar() {
     telefono: telefono,
     ciudad: ciudad,
     direccion: direccion,
-    genero: genero
+    genero: genero,
+    fechaNacimiento: fechaNacimiento,
+    codigoPostal: codigoPostal
   };
+
+  function mostrarMensaje(mensaje, tipo) {
+    alert(mensaje);
+  }
 
   registros.push(nuevoRegistro);
   console.log('Registro guardado:');
@@ -104,12 +134,15 @@ function registrar() {
   direccionElement.value = '';
   generoMasculinoElement.checked = false;
   generoFemeninoElement.checked = false;
+  fechaNacimientoElement.value = '';
+  codigoPostalElement.value = '';
 
   guardarRegistrosEnLocalStorage();
 
   // Mostrar todos los registros en el HTML
   mostrarTodoEnHTML();
 }
+
 
 // Función para eliminar un registro por ID
 function eliminar() {
@@ -170,6 +203,12 @@ function mostrarTodoEnHTML() {
     const generoP = document.createElement('p');
     generoP.textContent = `Género: ${registro.genero}`;
 
+    const fechaNacimientoP = document.createElement('p');
+    fechaNacimientoP.textContent = `Fecha de Nacimiento: ${registro.fechaNacimiento}`;
+
+    const codigoPostalP = document.createElement('p');
+    codigoPostalP.textContent = `Código Postal: ${registro.codigoPostal}`;
+
     registroDiv.appendChild(idP);
     registroDiv.appendChild(nombreP);
     registroDiv.appendChild(correoP);
@@ -177,6 +216,8 @@ function mostrarTodoEnHTML() {
     registroDiv.appendChild(ciudadP);
     registroDiv.appendChild(direccionP);
     registroDiv.appendChild(generoP);
+    registroDiv.appendChild(fechaNacimientoP);
+    registroDiv.appendChild(codigoPostalP);
 
     registrosContainer.appendChild(registroDiv);
   });
@@ -217,59 +258,111 @@ function mostrarIDsRegistrados() {
 
 // Función para modificar un registro por ID
 function modificar() {
-  const id = parseInt(document.getElementById('idModificacion').value);
-
+  const idModificacionElement = document.getElementById('idModificacion');
   const nombreElement = document.getElementById('nombre');
   const correoElement = document.getElementById('correo');
   const telefonoElement = document.getElementById('telefono');
-  const busquedaCiudadElement = document.getElementById('busquedaCiudad');
-  const direccionElement = document.getElementById('direccion');
   const generoMasculinoElement = document.getElementById('genero-masculino');
   const generoFemeninoElement = document.getElementById('genero-femenino');
+  const fechaNacimientoElement = document.getElementById('fechaNacimiento');
+  const busquedaCiudadElement = document.getElementById('busquedaCiudad');
+  const direccionElement = document.getElementById('direccion');
+  const codigoPostalElement = document.getElementById('codigoPostal');
 
+  const idModificacion = idModificacionElement.value;
   const nombre = nombreElement.value.trim();
   const correo = correoElement.value.trim();
   const telefono = telefonoElement.value.trim();
+  const genero = generoMasculinoElement.checked ? 'masculino' : 'femenino';
+  const fechaNacimiento = fechaNacimientoElement.value.trim();
   const ciudad = busquedaCiudadElement.value.trim();
   const direccion = direccionElement.value.trim();
-  const genero = generoMasculinoElement.checked ? 'masculino' : 'femenino';
+  const codigoPostal = codigoPostalElement.value.trim();
 
-  // Establece el mensaje de registro modificado
-  document.getElementById('mensaje').textContent = "Registro Modificado Correctamente";
-
-  if (nombre === '' || correo === '' || telefono === '' || ciudad === '' || direccion === '') {
-    console.log('Todos los campos son requeridos.');
+  if (idModificacion === '' || nombre === '' || correo === '' || telefono === '' || fechaNacimiento === '' || ciudad === '' || direccion === '' || codigoPostal === '') {
+    mostrarMensaje('Todos los campos son requeridos.', 'error');
     return;
   }
 
-  const registroModificado = {
-    id: id,
-    nombre: nombre,
-    correo: correo,
-    telefono: telefono,
-    ciudad: ciudad,
-    direccion: direccion,
-    genero: genero
-  };
+  // Validar el formato correcto del correo
+  const correoRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  if (!correoRegex.test(correo)) {
+    mostrarMensaje('Ingresa un correo electrónico válido.', 'error');
+    return;
+  }
 
-  registros = registros.map(registro => registro.id === id ? registroModificado : registro);
-  console.log(`Registro con ID ${id} modificado:`);
-  console.log(registroModificado);
+  // Validar que el nombre y apellido solo contengan texto y caracteres especiales
+  const nombreRegex = /^[a-zA-ZáÁéÉíÍóÓúÚñÑüÜ\s]+$/;
+  if (!nombreRegex.test(nombre)) {
+    mostrarMensaje('Ingresa un nombre válido. Solo se permiten letras y caracteres especiales.', 'error');
+    return;
+  }
 
-  // Limpiar los campos del formulario
+  // Validar el formato correcto del teléfono
+  const telefonoRegex = /^[+]?(56)?[1-9][0-9]{8}$/;
+  if (!telefonoRegex.test(telefono)) {
+    mostrarMensaje('Ingresa un número de teléfono válido en el formato de Chile.', 'error');
+    return;
+  }
+
+  const registro = registros.find(registro => registro.id === parseInt(idModificacion));
+  if (!registro) {
+    mostrarMensaje('El ID seleccionado no existe.', 'error');
+    return;
+  }
+
+  registro.nombre = nombre;
+  registro.correo = correo;
+  registro.telefono = telefono;
+  registro.genero = genero;
+  registro.fechaNacimiento = fechaNacimiento;
+  registro.ciudad = ciudad;
+  registro.direccion = direccion;
+  registro.codigoPostal = codigoPostal;
+
+  mostrarMensaje('Registro modificado exitosamente.', 'success');
+  guardarRegistrosEnLocalStorage();
+}
+
+  // Vaciar los campos después de la modificación
+  idModificacionElement.value = '';
   nombreElement.value = '';
   correoElement.value = '';
   telefonoElement.value = '';
-  busquedaCiudadElement.value = '';
-  direccionElement.value = '';
   generoMasculinoElement.checked = false;
   generoFemeninoElement.checked = false;
+  fechaNacimientoElement.value = '';
+  busquedaCiudadElement.value = '';
+  direccionElement.value = '';
+  codigoPostalElement.value = '';
 
-  guardarRegistrosEnLocalStorage();
+
+function mostrarMensaje(mensaje, tipo) {
+  const mensajeElement = document.getElementById('mensaje');
+  mensajeElement.textContent = mensaje;
+  mensajeElement.className = `mensaje-container ${tipo}`;
+  setTimeout(() => {
+    mensajeElement.textContent = '';
+    mensajeElement.className = 'mensaje-container';
+  }, 3000);
+}
+
+function validarFechaNacimiento() {
+  const fechaNacimientoElement = document.getElementById('fechaNacimiento');
+  const fechaNacimiento = fechaNacimientoElement.value;
+  const fechaActual = new Date();
+
+  if (fechaNacimiento > fechaActual.toISOString().split('T')[0]) {
+    fechaNacimientoElement.setCustomValidity('La fecha de nacimiento no puede ser en el futuro.');
+  } else {
+    fechaNacimientoElement.setCustomValidity('');
+  }
+}
+
 
   // Mostrar todos los registros en el HTML
   mostrarTodoEnHTML();
-}
+
 
 // ...
 
@@ -326,3 +419,76 @@ window.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+  function validarFechaNacimiento() {
+    var inputFecha = document.getElementById("fechaNacimiento");
+    var fechaNacimiento = new Date(inputFecha.value);
+    var fechaActual = new Date();
+    var edadMinima = 10; // Edad mínima permitida en años
+
+    if (fechaNacimiento > fechaActual) {
+      alert("Por favor, ingresa una fecha de nacimiento válida.");
+      inputFecha.value = ""; // Limpiar el campo de fecha de nacimiento
+    } else {
+      var edad = fechaActual.getFullYear() - fechaNacimiento.getFullYear();
+
+      // Verificar si la edad es menor a 10 años
+      if (edad < edadMinima) {
+        alert("Debes tener al menos 10 años para registrarte.");
+        inputFecha.value = ""; // Limpiar el campo de fecha de nacimiento
+      }
+    }
+  }
+
+  function validarFormularioRegistrar() {
+    const nombreElement = document.getElementById('nombre');
+    const correoElement = document.getElementById('correo');
+    const telefonoElement = document.getElementById('telefono');
+    const busquedaCiudadElement = document.getElementById('busquedaCiudad');
+    const direccionElement = document.getElementById('direccion');
+    const generoMasculinoElement = document.getElementById('genero-masculino');
+    const generoFemeninoElement = document.getElementById('genero-femenino');
+    const fechaNacimientoElement = document.getElementById('fechaNacimiento');
+    const codigoPostalElement = document.getElementById('codigoPostal');
+  
+    // Validar campos individuales
+    const nombre = nombreElement.value.trim();
+    const correo = correoElement.value.trim();
+    const telefono = telefonoElement.value.trim();
+    const ciudad = busquedaCiudadElement.value.trim();
+    const direccion = direccionElement.value.trim();
+    const fechaNacimiento = fechaNacimientoElement.value.trim();
+    const codigoPostal = codigoPostalElement.value.trim();
+  
+    if (nombre === '') {
+      mostrarMensaje('Por favor, ingresa un nombre.', 'error');
+      return false;
+    }
+  
+    if (correo === '') {
+      mostrarMensaje('Por favor, ingresa un correo electrónico.', 'error');
+      return false;
+    }
+  
+    // Agregar validaciones adicionales para los otros campos
+  
+    return true; // Si todos los campos son válidos
+  }
+  
+  function validarFormularioModificar() {
+    // Realiza validaciones similares a la función validarFormularioRegistrar() para el formulario de modificar
+  }
+  
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (validarFormularioRegistrar()) {
+      registrar();
+    }
+  });
+  
+  modificarButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    if (validarFormularioModificar()) {
+      modificar();
+    }
+  });
+  
