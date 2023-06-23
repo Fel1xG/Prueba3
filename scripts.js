@@ -150,21 +150,62 @@ function eliminar() {
 
   const registroEliminado = registros.find(registro => registro.id === id);
   if (!registroEliminado) {
-    mostrarMensajeEliminacion(`No se encontró ningún registro con el ID ${id}.`);
+    mostrarMensajeEliminacion('No se encontró ningún registro con el ID ingresado.', 'error');
     return;
   }
 
-  registros = registros.filter(registro => registro.id !== id);
-  registrosEliminados.push(registroEliminado);
-  guardarRegistrosEnLocalStorage();
+  const confirmacion = confirm(`¿Estás seguro de eliminar el registro con ID ${id}?`);
+  if (confirmacion) {
+    registros = registros.filter(registro => registro.id !== id);
+    registrosEliminados.push(registroEliminado);
+    guardarRegistrosEnLocalStorage();
+    mostrarMensajeEliminacion(`Registro con ID ${id} eliminado correctamente.`, 'success');
+    resetearFormulario();
+    bloquearCamposFormulario(true);
+    mostrarIDsRegistrados();
+    mostrarTodoEnHTML();
+  // Verificar si se eliminó correctamente
+  if (registroEliminado) {
+    mostrarMensaje('Registro eliminado correctamente.', 'success');
+  } else {
+    mostrarMensaje('No se pudo eliminar el registro.', 'error');
+  }
+    document.getElementById('id').value = ''; // Vaciar el campo de ID
+  }
+}
+function mostrarMensajeEliminacion(mensaje, tipo) {
+  const mensajeElement = document.getElementById('mensajeEliminacion');
+  mensajeElement.textContent = mensaje;
+  mensajeElement.className = tipo;
+}
 
-  // Volver a mostrar los IDs registrados en el campo de entrada del ID
-  mostrarIDsRegistrados();
+function bloquearCamposFormulario(bloquear) {
+  const nombreElement = document.getElementById('nombre');
+  const correoElement = document.getElementById('correo');
+  const telefonoElement = document.getElementById('telefono');
+  const generoMasculinoElement = document.getElementById('genero-masculino');
+  const generoFemeninoElement = document.getElementById('genero-femenino');
+  const fechaNacimientoElement = document.getElementById('fechaNacimiento');
+  const busquedaCiudadElement = document.getElementById('busquedaCiudad');
+  const direccionElement = document.getElementById('direccion');
+  const codigoPostalElement = document.getElementById('codigoPostal');
+  const botonRegistrarElement = document.getElementById('botonRegistrar');
 
-  mostrarMensajeEliminacion(`Registro con ID ${id} eliminado correctamente.`);
+  nombreElement.disabled = bloquear;
+  correoElement.disabled = bloquear;
+  telefonoElement.disabled = bloquear;
+  generoMasculinoElement.disabled = bloquear;
+  generoFemeninoElement.disabled = bloquear;
+  fechaNacimientoElement.disabled = bloquear;
+  busquedaCiudadElement.disabled = bloquear;
+  direccionElement.disabled = bloquear;
+  codigoPostalElement.disabled = bloquear;
+  botonRegistrarElement.disabled = bloquear;
+}
 
-  // Mostrar todos los registros en el HTML
-  mostrarTodoEnHTML();
+function resetearFormulario() {
+  const formulario = document.getElementById('registroForm');
+  formulario.reset();
 }
 
 // Ocultar el contenedor de registros al cargar la página
