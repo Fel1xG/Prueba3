@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Eliminar</title>
+  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+</head>
+<body>
+  <h1>Eliminar Registro</h1>
+  <div id="mensajeEliminacion"></div>
+  <form id="eliminarForm">
+    <label for="id">ID del registro a eliminar:</label>
+    <select id="id" autocomplete="off" required>
+      <option value="">Selecciona un ID</option>
+    </select><br>
+    <button type="button" onclick="eliminar()">Eliminar</button>
+  </form>
+
+  <script src="scripts.js"></script>
+  <script>
+    // Obtener el campo de selección de ID
+    const idSelect = document.getElementById('id');
+
+    // Mostrar los IDs registrados en el campo de selección
+    registros.forEach(registro => {
+      const option = document.createElement('option');
+      option.value = registro.id;
+      option.textContent = registro.id;
+      idSelect.appendChild(option);
+    });
+  </script>
+</body>
+</html>

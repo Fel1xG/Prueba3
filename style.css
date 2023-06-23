@@ -1,0 +1,301 @@
+/* Estilos generales */
+body {
+  background-image: url('https://cdn.pixabay.com/photo/2015/01/31/05/05/background-618226_1280.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
+  
+}
+
+h1 {
+  text-align: center;
+  margin: 20px 0;
+  color: #ff4f0a; /* Color naranja suave */
+  font-family: "Arial Black", sans-serif; /* Tipo de letra */
+  font-size: 36px; /* Tamaño de letra */
+  letter-spacing: 2px; /* Espaciado entre letras */
+  text-transform: uppercase; /* Convertir el texto en mayúsculas */
+  text-shadow: 2px 2px 4px rgba(255, 98, 0, 0.897); /* Sombra de texto */
+}
+
+/* Resto de estilos */
+
+nav {
+  background-color: #333333;
+  color: #fff;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.splide__slide {
+  flex-grow: 1;
+}
+
+.splide__slide a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #fff;
+  text-align: center;
+}
+
+.splide__slide a:hover {
+  background-color: #e1480b;
+}
+
+/* Estilos específicos de las páginas */
+
+/* Formularios */
+form#eliminarForm,
+form#modificarForm,
+button#mostrarTodoBtn,
+#registros p,
+form#registroForm {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 20px;
+  border: 1px solid #f90;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgb(254, 242, 242);
+}
+
+button#mostrarTodoBtn {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#registros {
+  max-width: 600px;
+}
+
+#registros p {
+  margin: 10px 0;
+}
+
+/* Registrar */
+h1 {
+  color: rgb(33, 32, 32);
+}
+
+form#registroForm {
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+form#registroForm input[type="text"],
+form#registroForm input[type="email"],
+form#registroForm input[type="tel"],
+form#eliminarForm input[type="text"],
+form#eliminarForm input[type="email"],
+form#eliminarForm input[type="tel"],
+form#modificarForm input[type="text"],
+form#modificarForm input[type="email"],
+form#modificarForm input[type="tel"],
+button#mostrarTodoBtn {
+  width: 100%;
+  max-width: 300px;
+  border: 1px solid #ccc;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+form#registroForm input[type="text"]:focus,
+form#registroForm input[type="email"]:focus,
+form#registroForm input[type="tel"]:focus,
+form#eliminarForm input[type="text"]:focus,
+form#eliminarForm input[type="email"]:focus,
+form#eliminarForm input[type="tel"]:focus,
+form#modificarForm input[type="text"]:focus,
+form#modificarForm input[type="email"]:focus,
+form#modificarForm input[type="tel"]:focus,
+button#mostrarTodoBtn:focus {
+  outline: none;
+  border-color: #4CAF50;
+}
+
+button#mostrarTodoBtn {
+  background-color: #4CAF50;
+  color: #fff;
+}
+
+form#registroForm button[type="button"],
+form#eliminarForm button[type="button"],
+form#modificarForm button[type="button"] {
+  padding: 10px 20px;
+  background-color: #ff8c00;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+form#registroForm button[type="button"]:hover,
+form#eliminarForm button[type="button"]:hover,
+form#modificarForm button[type="button"]:hover {
+  background-color: #ff6a00;
+}
+
+#sugerenciasCiudad {
+  display: none;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  padding: 5px;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+#sugerenciasCiudad p {
+  cursor: pointer;
+  padding: 5px;
+}
+
+#sugerenciasCiudad p:hover {
+  background-color: #f4f4f4;
+}
+
+/* Estilos adicionales para Mostrar Todo */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #ff6a00;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #e58715;
+}
+
+#registrosContainer {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(230, 118, 14, 0.712);
+}
+
+.oculto {
+  display: none;
+}
+
+
+.genero-container {
+  background-color: #f9f9f9;
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.genero-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.genero-buttons label {
+  margin-right: 10px;
+}
+
+.genero-buttons input[type="radio"] {
+  margin-right: 5px;
+}
+
+#direccion {
+  resize: none;
+  width: 300px;
+  height: 120px;
+  overflow: hidden;
+}
+
+.splide {
+  max-width: 700px;
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 60px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 0 auto; /* Centrar horizontalmente */
+}
+
+
+#mensajeEliminacion {
+  color: white;
+}
+
+
+
+.splide__track {
+  margin-bottom: 10px;
+}
+
+.splide__slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #fff;
+  text-align: center;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:nth-child(1) {
+  background-color: #ff6a00;
+}
+
+.button:nth-child(2) {
+  background-color: #00b0ff;
+}
+
+.button:nth-child(3) {
+  background-color: #8e24aa;
+}
+
+.button:nth-child(4) {
+  background-color: #f76e0c;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+.mensaje-container {
+  color: white;
+  padding: 10px;
+  margin-top: -20px;
+}
