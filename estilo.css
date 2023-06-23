@@ -1,0 +1,575 @@
+:root {
+	--background-color: #ffffff;
+	--text-color: #000000;
+}
+
+body {
+	background-color: var(--background-color);
+	color: var(--text-color);
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6,h5 .card-title,p.card-text {
+	color: #000000;
+}
+
+/* Estilos para el encabezado */
+header {
+	background-color: var(--background-color);
+	padding: 30px;
+}
+
+header h1 {
+	text-align: center;
+	font-size: 36px;
+	margin-bottom: 20px;
+}
+
+/* Estilos para la barra de navegación */
+nav {
+	background-color: var(--background-color);
+	padding: 20px 0;
+}
+
+nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+}
+
+nav ul li {
+	margin: 0 10px;
+}
+
+nav ul li a {
+	color: var(--text-color);
+	text-decoration: none;
+	font-size: 18px;
+}
+
+/* Estilos para el pie de página */
+footer {
+	background-color: var(--background-color);
+	color: var(--text-color);
+	padding: 50px 0;
+}
+
+/* Estilos para la sección de contacto */
+#contactanos {
+	background-color: var(--background-color);
+	padding: 50px;
+}
+
+#contactanos h2 {
+	text-align: center;
+	font-size: 32px;
+	margin-bottom: 30px;
+	color: var(--text-color);
+}
+
+/* Estilos para la sección de productos */
+#productos {
+	background-color: var(--background-color);
+	padding: 50px;
+	text-align: center;
+}
+
+#productos h2 {
+	font-size: 36px;
+	font-weight: bold;
+	margin-bottom: 30px;
+	color: var(--text-color);
+}
+
+/* Estilos para la sección de marcas */
+#marcas {
+	background-color: var(--background-color);
+	padding: 80px 0;
+}
+
+#marcas h2 {
+	font-size: 40px;
+	text-align: center;
+	margin-bottom: 40px;
+	color: var(--text-color);
+}
+
+/* Estilos para el tema oscuro */
+body.dark-mode {
+	--background-color: #333333;
+	--text-color: #ffffff;
+}
+
+.dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode h4, .dark-mode h5, .dark-mode h6 {
+	color: var(--text-color);
+}
+
+.dark-mode header {
+	background-color: var(--background-color);
+}
+
+.dark-mode nav {
+	background-color: var(--background-color);
+}
+
+.dark-mode nav ul li a {
+	color: var(--text-color);
+}
+
+.dark-mode footer {
+	background-color: var(--background-color);
+	color: var(--text-color);
+}
+
+.dark-mode #contactanos {
+	background-color: var(--background-color);
+}
+
+.dark-mode #contactanos h2 {
+	color: var(--text-color);
+}
+
+.dark-mode #productos {
+	background-color: var(--background-color);
+}
+
+.dark-mode #productos h2 {
+	color: var(--text-color);
+}
+
+.dark-mode #marcas {
+	background-color: var(--background-color);
+}
+
+.dark-mode #marcas h2 {
+	color: var(--text-color);
+}
+
+/* Estilos adicionales para cada sección */
+
+/* Estilos para la sección 1 */
+#seccion1 {
+	background-color: var(--background-color);
+	padding: 50px;
+}
+
+#seccion1 h2 {
+	font-size: 36px;
+	font-weight: bold;
+	margin-bottom: 30px;
+	color: var(--text-color);
+}
+
+/* Estilos para la sección 2 */
+#seccion2 {
+	background-color: var(--background-color);
+	padding: 50px;
+}
+
+#seccion2 h2 {
+	font-size: 36px;
+	font-weight: bold;
+	margin-bottom: 30px;
+	color: var(--text-color);
+}
+
+/* Estilos para la sección 3 */
+#seccion3 {
+	background-color: var(--background-color);
+	padding: 50px;
+}
+
+#seccion3 h2 {
+	font-size: 36px;
+	font-weight: bold;
+	margin-bottom: 30px;
+	color: var(--text-color);
+}
+
+/* Estilos para la sección 4 */
+#seccion4 {
+	background-color: var(--background-color);
+	padding: 50px;
+}
+
+#seccion4 h2 {
+	font-size: 36px;
+	font-weight: bold;
+	margin-bottom: 30px;
+	color: var(--text-color);
+}
+
+/* Estilos para la sección 5 */
+#seccion5 {
+	background-color: var(--background-color);
+	padding: 50px;
+}
+
+#seccion5 h2 {
+	font-size: 36px;
+	font-weight: bold;
+	margin-bottom: 30px;
+	color: var(--text-color);
+}
+
+/* Estilos para la sección 6 */
+#seccion6 {
+	background-color: var(--background-color);
+	padding: 50px;
+}
+
+#seccion6 h2 {
+	font-size: 36px;
+	font-weight: bold;
+	margin-bottom: 30px;
+	color: var(--text-color);
+}
+
+/*MARCAS*/
+#marcas {
+	background-color: #ffffff;
+	padding: 80px 0;
+}
+
+#marcas h2 {
+	font-size: 40px;
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+.marca {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 150px;
+	margin-bottom: 40px;
+	background-color: white;
+	border-radius: 10px;
+	box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+	transition: transform 0.2s ease-in-out;
+}
+
+.marca:hover {
+	transform: scale(1.1);
+}
+
+.marca img {
+	height: 100px;
+}
+
+@media screen and (max-width: 768px) {
+	.marca {
+		height: 120px;
+	}
+	.marca img {
+		height: 80px;
+	}
+}
+/* Agregamos un estilo para los mensajes de éxito o error */
+#status-message {
+	padding: 10px;
+	margin-top: 20px;
+	font-size: 16px;
+	color: white;
+	border-radius: 5px;
+}
+
+#status-message.success {
+	background-color: #4caf50;
+}
+
+#status-message.error {
+	background-color: #f44336;
+}
+
+/*Nuevas marcas*/
+.col-md-3:nth-child(5) .marca img {
+	height: 80px;
+}
+
+.col-md-3:nth-child(5) .marca:hover {
+	transform: scale(1.1) rotate(-5deg);
+}
+
+.col-md-3:nth-child(5) .marca {
+	background-color: white;
+}
+
+.col-md-3:nth-child(6) .marca img {
+	height: 80px;
+}
+
+.col-md-3:nth-child(6) .marca:hover {
+	transform: scale(1.1) rotate(5deg);
+}
+
+.col-md-3:nth-child(6) .marca {
+	background-color: white;
+}
+
+.col-md-3:nth-child(7) .marca img {
+	height: 80px;
+}
+
+.col-md-3:nth-child(7) .marca:hover {
+	transform: scale(1.1) rotate(-5deg);
+}
+
+.col-md-3:nth-child(7) .marca {
+	background-color: white;
+}
+
+#productos {
+padding: 50px;
+text-align: center;
+}
+
+#productos h2 {
+font-size: 36px;
+font-weight: bold;
+margin-bottom: 30px;
+}
+
+#productos .container {
+display: flex;
+flex-wrap: wrap;
+justify-content: center; /* Cambiado de "space-between" a "center" */
+gap: 30px; /* Agregado para dar espacio entre las tarjetas */
+}
+
+#productos .card {
+border: none;
+margin-bottom: 30px;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+transition: 0.3s;
+flex-basis: calc(33.33% - 20px);
+}
+
+#productos .card:hover {
+box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+#productos .card-img-top {
+width: 100%;
+height: 400px;
+object-fit: cover;
+object-position: center;
+}
+
+#productos .card-body {
+padding: 20px;
+}
+
+#productos .card-title {
+font-size: 24px;
+font-weight: bold;
+margin-bottom: 10px;
+}
+
+#productos .card-text {
+font-size: 18px; /* Cambiado de 14px a 16px para que se vea del mismo tamaño que el texto en la sección 2 */
+text-align: justify;
+}
+
+@media (max-width: 768px) {
+#productos .card {
+	flex-basis: 100%;
+	margin-right: 0;
+}
+}
+
+
+
+.social-icons {
+	display: flex;
+	align-items: center;
+}
+
+.social-icons a {
+	margin-right: 35px;
+	text-decoration: none;
+	color: #000000;
+}
+
+.social-icons a:hover {
+	color: #fb0909;
+}
+
+.social-icons i {
+	font-size: 30px;
+	margin-right: 20px;
+}
+
+/* Estilos para el pie de página */
+footer {
+	background-color: #ffffff;
+	color: #171515;
+	padding: 50px 0;
+}
+
+footer h4 {
+	margin-bottom: 20px;
+}
+
+footer p {
+	font-size: 16px;
+	line-height: 24px;
+}
+
+footer ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+footer li {
+	display: inline-block;
+	margin-right: 20px;
+}
+
+footer a {
+	color: #fff;
+	font-size: 24px;
+}
+
+/* Estilos para el encabezado */
+.navbar-brand {
+	height: 50px;
+}
+
+.navbar-toggler-icon {
+	border: none;
+}
+
+.nav-link {
+	font-weight: bold;
+	color: #000;
+}
+
+.navbar {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 9999;
+	background-color: #ffffff;
+}
+
+.navbar .navbar-collapse {
+	background-color: #ffffff;
+}
+
+.navbar .navbar-nav .nav-item .nav-link:hover {
+	color: #cf0a0a;
+}
+
+.logo {
+	width: 55px;
+	height: 50px;
+}
+
+.header {
+	background-color: #ffffff;
+	color: #ffffff;
+	padding: 20px 0;
+}
+
+.header h1 {
+	margin: 0;
+	font-size: 2rem;
+	font-weight: bold;
+	text-align: center;
+}
+
+/* Estilos para el cuerpo de la página */
+body:first-child {
+	font-family: Arial, sans-serif;
+	color: #000000;
+	margin: 0;
+	padding: 0;
+}
+
+#quienes-somos {
+	background-size: cover;
+	background-position: center;
+	padding: 30px;
+	text-align: justify;
+}
+
+
+#quienes-somos {
+	margin-top: 70px;
+}
+
+#quienes-somos {
+	padding-top: 80px;
+}
+
+#ubicacion {
+	background-color: var(--background-color);
+	padding: 80px 0;
+}
+
+.section-title {
+	font-size: 36px;
+	font-weight: 700;
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+.section-description {
+	font-size: 18px;
+	font-weight: 400;
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.map-container {
+	position: relative;
+	overflow: hidden;
+	padding-top: 56.25%; /* 16:9 aspect ratio */
+}
+
+.map-container iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+#registros {
+	text-align: center;
+	padding: 20px;
+	background-color: var(--background-color);
+  }
+  
+  #registros h2 {
+	font-size: 44px;
+	font-weight: bold;
+	margin-bottom: 10px;
+  }
+  
+  
+  #registros p {
+	font-size: 16px;
+	margin-bottom: 20px;
+  }
+  
+  #registros button {
+	padding: 10px 20px;
+	font-size: 16px;
+	background-color: #d41a14;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+  }
+  
+  #registros button:hover {
+	background-color: #da1f1f;
+  }
+  
